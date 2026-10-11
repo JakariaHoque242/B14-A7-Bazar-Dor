@@ -84,10 +84,4 @@
    npm run build
    ```
 
----
 
-## 👨‍💻 প্রজেক্ট ডেভেলপার (Author)
-
-- **নাম:** জাকারিয়া হক (Jakaria Hoque)  
-- **কোর্স:** Programming Hero Web Development Course (Batch 14)  
-- **অ্যাসাইনমেন্ট:** Assignment 07 (Bazar Dor)
