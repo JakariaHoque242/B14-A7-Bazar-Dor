@@ -1,0 +1,36 @@
+{
+  "name": "bazar-dor",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "node scripts/init-db.js && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "node scripts/init-db.js"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.14.0",
+    "@libsql/kysely-libsql": "^0.4.1",
+    "@types/better-sqlite3": "^9.6.0",
+    "better-auth": "^1.1.21",
+    "better-sqlite3": "^13.0.3",
+    "clsx": "^2.1.1",
+    "kysely": "^0.27.4",
+    "lucide-react": "^0.453.0",
+    "next": "14.2.23",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.4.1",
+    "tailwind-merge": "^2.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
+  }
+}
