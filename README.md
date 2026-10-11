@@ -9,7 +9,7 @@
 ## 🔗 প্রয়োজনীয় লিংকসমূহ (Links)
 
 - **GitHub Repository:** [https://github.com/JakariaHoque242/B14-A7-Bazar-Dor](https://github.com/JakariaHoque242/B14-A7-Bazar-Dor)
-- **Live Website:** [https://b14-a7-bazar-dor.vercel.app](https://b14-a7-bazar-dor.vercel.app)
+- **Live Website:** [https://b14-a7-bazar-dor-rust.vercel.app](https://b14-a7-bazar-dor-rust.vercel.app)
 
 ---
 
