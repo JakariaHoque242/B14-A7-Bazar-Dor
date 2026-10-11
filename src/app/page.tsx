@@ -27,21 +27,10 @@ export default async function HomePage() {
       <div className="max-w-6xl mx-auto px-4 mt-10 space-y-14">
         {/* Section A: আজ দাম বেড়েছে ▲ */}
         <section id="আজ-দাম-বেড়েছে" className="scroll-mt-32">
-          <div className="flex items-center justify-between gap-4 mb-5">
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                <h2 className="text-xl sm:text-2xl font-bold text-bazar-base-content flex items-center gap-2">
-                  আজ দাম বেড়েছে <span className="text-emerald-600">▲</span>
-                </h2>
-              </div>
-              <p className="text-xs sm:text-sm text-bazar-muted mt-1">
-                আজকের বাজারে যেসব পণ্যের দাম সবচেয়ে বেশি বৃদ্ধি পেয়েছে (শীর্ষ {toBengaliNumber(risers.length)}টি)
-              </p>
-            </div>
-            <span className="hidden sm:inline-block px-3 py-1 bg-emerald-50 text-emerald-800 text-xs font-semibold rounded-full border border-emerald-200">
-              বৃদ্ধির প্রবণতা
-            </span>
+          <div className="mb-5">
+            <h2 className="text-xl sm:text-2xl font-bold text-bazar-base-content flex items-center gap-2">
+              আজ দাম বেড়েছে <span className="text-emerald-600">▲</span>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -53,21 +42,10 @@ export default async function HomePage() {
 
         {/* Section B: আজ দাম কমেছে ▼ */}
         <section className="scroll-mt-32">
-          <div className="flex items-center justify-between gap-4 mb-5">
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
-                <h2 className="text-xl sm:text-2xl font-bold text-bazar-base-content flex items-center gap-2">
-                  আজ দাম কমেছে <span className="text-rose-600">▼</span>
-                </h2>
-              </div>
-              <p className="text-xs sm:text-sm text-bazar-muted mt-1">
-                আজকের বাজারে যেসব পণ্যের দাম হ্রাস পেয়েছে (শীর্ষ {toBengaliNumber(fallers.length)}টি)
-              </p>
-            </div>
-            <span className="hidden sm:inline-block px-3 py-1 bg-rose-50 text-rose-800 text-xs font-semibold rounded-full border border-rose-200">
-              হ্রাসের প্রবণতা
-            </span>
+          <div className="mb-5">
+            <h2 className="text-xl sm:text-2xl font-bold text-bazar-base-content flex items-center gap-2">
+              আজ দাম কমেছে <span className="text-rose-600">▼</span>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">

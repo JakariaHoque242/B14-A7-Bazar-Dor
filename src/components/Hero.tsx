@@ -16,12 +16,6 @@ export default function Hero({ totalProducts = 33 }: HeroProps) {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* Left Content */}
           <div className="flex-1 text-center lg:text-left">
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-xs sm:text-sm font-medium text-emerald-800 mb-3">
-              <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
-              <span>প্রতিদিনের নিত্যপ্রয়োজনীয় পণ্যের বাজার দর</span>
-            </div>
-
             {/* Main Heading */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-bazar-base-content tracking-tight leading-tight">
               আজকের বাজারের দাম <span className="text-bazar-primary">এক নজরে</span>
@@ -29,48 +23,18 @@ export default function Hero({ totalProducts = 33 }: HeroProps) {
 
             {/* Subtitle */}
             <p className="mt-3 sm:mt-4 text-sm sm:text-base text-bazar-muted max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম এবং বাজারভিত্তিক বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
+              চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়
             </p>
 
-            {/* CTA Buttons */}
-            <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4">
+            {/* CTA Button */}
+            <div className="mt-6 flex items-center justify-center lg:justify-start">
               <a
                 href="#সব-পণ্য"
-                className="px-5 py-2.5 sm:px-6 sm:py-3 bg-bazar-primary hover:bg-bazar-primary-hover text-white text-sm sm:text-base font-semibold rounded-xl shadow-md transition-all hover:shadow-lg active:scale-98 inline-flex items-center gap-2"
+                className="px-6 py-3 bg-bazar-primary hover:bg-bazar-primary-hover text-white text-sm sm:text-base font-semibold rounded-xl shadow-md transition-all hover:shadow-lg active:scale-98 inline-flex items-center gap-2"
               >
                 <span>সব পণ্য দেখুন</span>
                 <span className="text-lg">↓</span>
               </a>
-
-              <a
-                href="#আজ-দাম-বেড়েছে"
-                className="px-5 py-2.5 sm:px-6 sm:py-3 bg-white hover:bg-bazar-base-100 text-bazar-base-content border border-bazar-base-300 text-sm sm:text-base font-semibold rounded-xl shadow-xs transition-colors inline-flex items-center gap-2"
-              >
-                <span>বাজার পরিবর্তন</span>
-                <span>▲▼</span>
-              </a>
-            </div>
-
-            {/* Quick Stat Badges */}
-            <div className="mt-8 pt-6 border-t border-bazar-base-300/60 grid grid-cols-3 gap-2 sm:gap-4 max-w-md mx-auto lg:mx-0 text-center">
-              <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-bazar-base-300 shadow-xs">
-                <p className="text-xl sm:text-2xl font-bold text-bazar-primary">
-                  {toBengaliNumber(6)}
-                </p>
-                <p className="text-xs text-bazar-muted">বিভাগের তথ্য</p>
-              </div>
-              <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-bazar-base-300 shadow-xs">
-                <p className="text-xl sm:text-2xl font-bold text-bazar-primary">
-                  {toBengaliNumber(12)}
-                </p>
-                <p className="text-xs text-bazar-muted">বাজারের তথ্য</p>
-              </div>
-              <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-bazar-base-300 shadow-xs">
-                <p className="text-xl sm:text-2xl font-bold text-bazar-primary">
-                  {toBengaliNumber(totalProducts)}
-                </p>
-                <p className="text-xs text-bazar-muted">পণ্যের দাম</p>
-              </div>
             </div>
           </div>
 

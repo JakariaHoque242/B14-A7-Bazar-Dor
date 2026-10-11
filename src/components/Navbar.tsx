@@ -152,17 +152,6 @@ export default function Navbar({ categories }: NavbarProps) {
       <div className="border-t border-bazar-base-200 bg-white">
         <div className="max-w-6xl mx-auto px-4 py-2">
           <nav className="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth">
-            <Link
-              href="/"
-              className={`shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium border transition-colors ${
-                pathname === "/"
-                  ? "bg-bazar-primary text-white border-bazar-primary shadow-xs"
-                  : "bg-bazar-base-200 text-bazar-base-content border-bazar-base-300 hover:bg-bazar-base-300"
-              }`}
-            >
-              <span>🏠</span>
-              <span>সব পণ্য</span>
-            </Link>
 
             {categories.map((cat) => {
               const isActive = pathname === `/category/${cat.slug}`;

@@ -37,7 +37,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {/* Bottom Part: Price & Change Badge */}
-      <div className="mt-4 pt-3 border-t border-bazar-base-200 flex items-end justify-between gap-2">
+      <div className="mt-4 flex items-end justify-between gap-2">
         <div>
           <span className="text-xs text-bazar-muted block font-normal">আজকের দাম</span>
           <span className="text-lg sm:text-xl font-bold text-bazar-base-content">

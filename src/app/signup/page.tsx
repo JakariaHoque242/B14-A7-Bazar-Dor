@@ -13,7 +13,6 @@ export default function SignUpPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
@@ -34,15 +33,9 @@ export default function SignUpPage() {
       return;
     }
 
-    if (password.length < 8) {
-      setErrorMsg("পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে।");
-      toast.error("পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে।");
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      setErrorMsg("উভয় পাসওয়ার্ড মেলেনি। আবার লিখুন।");
-      toast.error("উভয় পাসওয়ার্ড মেলেনি। আবার লিখুন।");
+    if (password.length < 4) {
+      setErrorMsg("পাসওয়ার্ড কমপক্ষে ৪ অক্ষরের হতে হবে।");
+      toast.error("পাসওয়ার্ড কমপক্ষে ৪ অক্ষরের হতে হবে।");
       return;
     }
 
@@ -173,24 +166,6 @@ export default function SignUpPage() {
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
-              </div>
-            </div>
-
-            {/* Confirm Password Field */}
-            <div>
-              <label className="block text-xs font-semibold text-bazar-base-content mb-1.5">
-                পাসওয়ার্ড নিশ্চিত করুন
-              </label>
-              <div className="relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  placeholder="আবার লিখুন"
-                  required
-                  className="w-full bg-bazar-base-100 border border-bazar-base-300 focus:border-bazar-primary rounded-xl px-3.5 py-2.5 pl-10 text-sm text-bazar-base-content focus:outline-hidden focus:ring-2 focus:ring-bazar-primary/20 transition-all placeholder:text-gray-400"
-                />
-                <Lock className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               </div>
             </div>
 

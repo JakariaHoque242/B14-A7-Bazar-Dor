@@ -14,7 +14,7 @@ export default function ProductCardSkeleton() {
         <div className="h-3 w-12 bg-bazar-base-200 rounded" />
       </div>
 
-      <div className="mt-4 pt-3 border-t border-bazar-base-200 flex items-end justify-between gap-2">
+      <div className="mt-4 flex items-end justify-between gap-2">
         <div className="space-y-1.5">
           <div className="h-3 w-14 bg-bazar-base-200 rounded" />
           <div className="h-5 w-24 bg-bazar-base-200 rounded" />
