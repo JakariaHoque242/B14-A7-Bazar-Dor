@@ -15,7 +15,7 @@
 ## 🚀 লাইভ ডেমো ও রিপোজিটরি (Links)
 
 - **Live Deployment:** [বাজার দর লাইভ সাইট](https://bazar-dor.vercel.app)
-- **GitHub Repository:** [GitHub Repo Link](https://github.com/ProgrammingHero1/B14-A7-Bazar-Dor)
+- **GitHub Repository:** [https://github.com/JakariaHoque242/B14-A7-Bazar-Dor](https://github.com/JakariaHoque242/B14-A7-Bazar-Dor)
 
 ---
 
