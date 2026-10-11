@@ -20,7 +20,6 @@ export default function CategoryClientView({
 }: CategoryClientViewProps) {
   const [sortBy, setSortBy] = useState<SortOption>("default");
 
-  // Sort products numerically
   const sortedProducts = useMemo(() => {
     const list = [...initialProducts];
     if (sortBy === "price_asc") {
@@ -32,7 +31,6 @@ export default function CategoryClientView({
     return list;
   }, [initialProducts, sortBy]);
 
-  // Empty state if category not found or has no products
   if (!category && initialProducts.length === 0) {
     return (
       <div className="max-w-xl mx-auto px-4 py-20 text-center">
@@ -61,7 +59,7 @@ export default function CategoryClientView({
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 space-y-8">
-      {/* Category Header */}
+      
       <div className="bg-white rounded-2xl border border-bazar-base-300 p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xs">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-bazar-base-200 border border-bazar-base-300 flex items-center justify-center text-3xl shrink-0 shadow-xs">
@@ -77,7 +75,6 @@ export default function CategoryClientView({
           </div>
         </div>
 
-        {/* Challenge C1: Sort dropdown */}
         <div className="flex items-center gap-3 self-end md:self-center">
           <label htmlFor="sort-select" className="text-xs sm:text-sm font-medium text-bazar-muted flex items-center gap-1.5 shrink-0">
             <ArrowUpDown className="w-3.5 h-3.5 text-bazar-primary" />
@@ -99,7 +96,6 @@ export default function CategoryClientView({
         </div>
       </div>
 
-      {/* Product Cards Grid */}
       {sortedProducts.length === 0 ? (
         <div className="bg-white rounded-2xl border border-bazar-base-300 p-12 text-center">
           <span className="text-4xl block mb-3">🧺</span>

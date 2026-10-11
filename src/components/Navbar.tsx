@@ -26,7 +26,6 @@ export default function Navbar({ categories }: NavbarProps) {
     setCurrentDate(getBengaliDateString());
   }, []);
 
-  // Close dropdown on click outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -53,9 +52,9 @@ export default function Navbar({ categories }: NavbarProps) {
 
   return (
     <header className="w-full bg-white border-b border-bazar-base-300 sticky top-0 z-40">
-      {/* Top Main Navbar Row */}
+      
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-        {/* Left: Logo & Bengali Date */}
+        
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-2xl group-hover:scale-105 transition-transform shadow-xs">
             🛒
@@ -70,7 +69,6 @@ export default function Navbar({ categories }: NavbarProps) {
           </div>
         </Link>
 
-        {/* Right: Auth Buttons / User Profile */}
         <div className="flex items-center gap-2 sm:gap-3">
           {isPending ? (
             <div className="h-9 w-24 bg-bazar-base-200 animate-pulse rounded-lg" />
@@ -100,7 +98,6 @@ export default function Navbar({ categories }: NavbarProps) {
                 <ChevronDown className={`w-4 h-4 text-bazar-muted transition-transform ${isDropdownOpen ? "rotate-180" : ""}`} />
               </button>
 
-              {/* User Dropdown Menu */}
               {isDropdownOpen && (
                 <div className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-bazar-base-300 py-2 z-50 animate-in fade-in zoom-in-95 duration-100">
                   <div className="px-4 py-2 border-b border-bazar-base-200">
@@ -148,7 +145,6 @@ export default function Navbar({ categories }: NavbarProps) {
         </div>
       </div>
 
-      {/* Second Row: Category Links / Chips */}
       <div className="border-t border-bazar-base-200 bg-white">
         <div className="max-w-6xl mx-auto px-4 py-2">
           <nav className="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth">

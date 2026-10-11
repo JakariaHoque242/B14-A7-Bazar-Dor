@@ -80,7 +80,7 @@ export default function SignUpPage() {
   return (
     <div className="min-h-[85vh] flex flex-col items-center justify-center px-4 py-12">
       <div className="w-full max-w-md space-y-6">
-        {/* Back Link */}
+        
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-sm text-bazar-muted hover:text-bazar-primary transition-colors group"
@@ -89,7 +89,6 @@ export default function SignUpPage() {
           <span>হোম পেজে ফিরে যান</span>
         </Link>
 
-        {/* Header Title & Subtitle */}
         <div className="text-left">
           <h1 className="text-3xl font-extrabold text-bazar-base-content tracking-tight">
             অ্যাকাউন্ট তৈরি করুন
@@ -99,7 +98,6 @@ export default function SignUpPage() {
           </p>
         </div>
 
-        {/* Card */}
         <div className="bg-white rounded-3xl border border-bazar-base-300 p-6 sm:p-8 shadow-sm">
           {errorMsg && (
             <div className="mb-5 p-3 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-700">
@@ -108,7 +106,7 @@ export default function SignUpPage() {
           )}
 
           <form onSubmit={handleSignUp} className="space-y-4">
-            {/* Name Field */}
+            
             <div>
               <label className="block text-xs font-semibold text-bazar-base-content mb-1.5">
                 নাম
@@ -126,7 +124,6 @@ export default function SignUpPage() {
               </div>
             </div>
 
-            {/* Email Field */}
             <div>
               <label className="block text-xs font-semibold text-bazar-base-content mb-1.5">
                 ইমেইল
@@ -144,7 +141,6 @@ export default function SignUpPage() {
               </div>
             </div>
 
-            {/* Password Field */}
             <div>
               <label className="block text-xs font-semibold text-bazar-base-content mb-1.5">
                 পাসওয়ার্ড
@@ -169,7 +165,6 @@ export default function SignUpPage() {
               </div>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
@@ -183,7 +178,6 @@ export default function SignUpPage() {
             </button>
           </form>
 
-          {/* Divider */}
           <div className="relative my-6 text-center">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-bazar-base-200" />
@@ -193,7 +187,6 @@ export default function SignUpPage() {
             </span>
           </div>
 
-          {/* Social Logins */}
           <div className="grid grid-cols-2 gap-3">
             <button
               type="button"
@@ -235,7 +228,6 @@ export default function SignUpPage() {
             </button>
           </div>
 
-          {/* Login Link */}
           <p className="mt-6 text-center text-xs text-bazar-muted">
             অ্যাকাউন্ট আছে?{" "}
             <Link href="/signin" className="font-semibold text-bazar-primary hover:underline">

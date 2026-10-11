@@ -7,13 +7,11 @@ import { toBengaliNumber } from "@/lib/utils";
 export default async function HomePage() {
   const products = await getAllProducts();
 
-  // Top 6 Risers (দাম বেড়েছে)
   const risers = [...products]
     .filter((p) => p.change.dir === "up" || p.change.pct > 0)
     .sort((a, b) => b.change.pct - a.change.pct)
     .slice(0, 6);
 
-  // Top 6 Fallers (দাম কমেছে)
   const fallers = [...products]
     .filter((p) => p.change.dir === "down" || p.change.pct < 0)
     .sort((a, b) => a.change.pct - b.change.pct)
@@ -21,11 +19,11 @@ export default async function HomePage() {
 
   return (
     <div className="pb-16">
-      {/* Hero Banner */}
+      
       <Hero totalProducts={products.length} />
 
       <div className="max-w-6xl mx-auto px-4 mt-10 space-y-14">
-        {/* Section A: আজ দাম বেড়েছে ▲ */}
+        
         <section id="আজ-দাম-বেড়েছে" className="scroll-mt-32">
           <div className="mb-5">
             <h2 className="text-xl sm:text-2xl font-bold text-bazar-base-content flex items-center gap-2">
@@ -40,7 +38,6 @@ export default async function HomePage() {
           </div>
         </section>
 
-        {/* Section B: আজ দাম কমেছে ▼ */}
         <section className="scroll-mt-32">
           <div className="mb-5">
             <h2 className="text-xl sm:text-2xl font-bold text-bazar-base-content flex items-center gap-2">
@@ -55,7 +52,6 @@ export default async function HomePage() {
           </div>
         </section>
 
-        {/* Section C: সব পণ্য */}
         <section id="সব-পণ্য" className="scroll-mt-32">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6 pb-3 border-b border-bazar-base-300">
             <div>

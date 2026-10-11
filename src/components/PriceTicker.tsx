@@ -12,7 +12,6 @@ interface PriceTickerProps {
 export default function PriceTicker({ products }: PriceTickerProps) {
   if (!products || products.length === 0) return null;
 
-  // We duplicate the list to ensure seamless infinite looping animation
   const tickerItems = [...products, ...products];
 
   return (

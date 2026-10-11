@@ -20,7 +20,7 @@ async function fetchFromApi<T>(endpoint: string, options: RequestInit = {}): Pro
         return data as T;
       }
     } catch {
-      // Continue to next fallback url
+
     }
   }
   return null;
@@ -36,13 +36,13 @@ export async function getProductsByCategory(category: string): Promise<Product[]
   if (data && data.length > 0) {
     return data;
   }
-  // Fallback to client-side filter
+
   const all = await getAllProducts();
   return all.filter((p) => p.category.toLowerCase() === category.toLowerCase());
 }
 
 export async function getProductByIdOrSlug(idOrSlug: string | number): Promise<Product | null> {
-  // If it's a number or numeric string, try single product endpoint
+
   const isNumeric = !isNaN(Number(idOrSlug));
   if (isNumeric) {
     const single = await fetchFromApi<Product>(`/products/${idOrSlug}`);
@@ -51,7 +51,6 @@ export async function getProductByIdOrSlug(idOrSlug: string | number): Promise<P
     }
   }
 
-  // Otherwise or if not found, search in all products
   const all = await getAllProducts();
   const found = all.find(
     (p) =>
@@ -66,7 +65,7 @@ export async function getAllCategories(): Promise<Category[]> {
   if (data && data.length > 0) {
     return data;
   }
-  // Fallback default categories
+
   return [
     { id: "chal", slug: "chal", nameBn: "চাল", icon: "🍚" },
     { id: "dal", slug: "dal", nameBn: "ডাল", icon: "🫘" },

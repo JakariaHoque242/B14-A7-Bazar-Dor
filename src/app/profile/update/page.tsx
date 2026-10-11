@@ -38,7 +38,7 @@ export default function UpdateProfilePage() {
 
     setLoading(true);
     try {
-      // BetterAuth updateUser API
+
       const res = await authClient.updateUser({
         name: name.trim(),
       });
@@ -76,7 +76,7 @@ export default function UpdateProfilePage() {
   return (
     <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 py-12">
       <div className="w-full max-w-md space-y-6">
-        {/* Back Link */}
+        
         <Link
           href="/profile"
           className="inline-flex items-center gap-2 text-sm text-bazar-muted hover:text-bazar-primary transition-colors group"
@@ -85,7 +85,6 @@ export default function UpdateProfilePage() {
           <span>প্রোফাইলে ফিরে যান</span>
         </Link>
 
-        {/* Title */}
         <div>
           <h1 className="text-3xl font-extrabold text-bazar-base-content tracking-tight">
             তথ্য আপডেট করুন
@@ -95,7 +94,6 @@ export default function UpdateProfilePage() {
           </p>
         </div>
 
-        {/* Form Card */}
         <div className="bg-white rounded-3xl border border-bazar-base-300 p-6 sm:p-8 shadow-sm">
           {errorMsg && (
             <div className="mb-5 p-3 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-700">
@@ -121,13 +119,11 @@ export default function UpdateProfilePage() {
               </div>
             </div>
 
-            {/* Read-only email notice */}
             <div className="bg-bazar-base-100 p-3 rounded-xl border border-bazar-base-200 text-xs text-bazar-muted">
               <span className="font-medium text-bazar-base-content block">ইমেইল: {session.user.email}</span>
               (ইমেইল পরিবর্তনযোগ্য নয়)
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}

@@ -47,7 +47,7 @@ export default function ProfilePage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-10 space-y-6">
-      {/* Back button */}
+      
       <Link
         href="/"
         className="inline-flex items-center gap-2 text-sm text-bazar-muted hover:text-bazar-primary transition-colors group"
@@ -56,7 +56,6 @@ export default function ProfilePage() {
         <span>হোম পেজে ফিরে যান</span>
       </Link>
 
-      {/* Header */}
       <div>
         <h1 className="text-3xl font-extrabold text-bazar-base-content tracking-tight">
           আমার প্রোফাইল
@@ -66,9 +65,8 @@ export default function ProfilePage() {
         </p>
       </div>
 
-      {/* Profile Card */}
       <div className="bg-white rounded-3xl border border-bazar-base-300 p-6 sm:p-8 shadow-xs space-y-6">
-        {/* User Top Info */}
+        
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-6 border-b border-bazar-base-200">
           <div className="flex items-center gap-4">
             <div className="w-20 h-20 rounded-2xl overflow-hidden bg-emerald-100 border border-emerald-300 flex items-center justify-center text-2xl font-bold text-emerald-800 shrink-0 shadow-xs">
@@ -95,7 +93,6 @@ export default function ProfilePage() {
             </div>
           </div>
 
-          {/* Sign Out Button */}
           <button
             onClick={handleSignOut}
             className="inline-flex items-center justify-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-rose-600 bg-rose-50 border border-rose-200 rounded-xl hover:bg-rose-100 transition-colors shrink-0"
@@ -105,13 +102,12 @@ export default function ProfilePage() {
           </button>
         </div>
 
-        {/* Account Details & Challenge C3 Update Button */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-base font-bold text-bazar-base-content">
               ব্যক্তিগত তথ্য
             </h3>
-            {/* C3 requirement: button taking user to another route */}
+            
             <Link
               href="/profile/update"
               className="inline-flex items-center gap-2 px-4 py-2 bg-bazar-primary hover:bg-bazar-primary-hover text-white text-xs sm:text-sm font-semibold rounded-xl shadow-xs transition-colors"

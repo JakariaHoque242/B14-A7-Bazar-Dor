@@ -17,7 +17,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       href={`/product/${product.id}`}
       className="group block bg-white rounded-2xl border border-bazar-base-300 p-4 hover:border-bazar-primary hover:shadow-md transition-all duration-200"
     >
-      {/* Top Part: Icon + Title & Unit */}
+      
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-xl bg-bazar-base-200 border border-bazar-base-300 flex items-center justify-center text-2xl group-hover:scale-105 transition-transform shrink-0">
@@ -36,7 +36,6 @@ export default function ProductCard({ product }: ProductCardProps) {
         </span>
       </div>
 
-      {/* Bottom Part: Price & Change Badge */}
       <div className="mt-4 flex items-end justify-between gap-2">
         <div>
           <span className="text-xs text-bazar-muted block font-normal">আজকের দাম</span>
@@ -45,7 +44,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           </span>
         </div>
 
-        {/* Change badge */}
         <div
           className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold border ${
             isUp

@@ -33,7 +33,6 @@ export default function ProductDetailsClientView({
     }
   }, [isPending, session, hasRedirected, router, idOrSlug]);
 
-  // Loading state while checking auth
   if (isPending || (!session?.user && !hasRedirected)) {
     return (
       <div className="max-w-5xl mx-auto px-4 py-16 text-center space-y-4">
@@ -43,12 +42,10 @@ export default function ProductDetailsClientView({
     );
   }
 
-  // Not logged in (redirecting)
   if (!session?.user) {
     return null;
   }
 
-  // If product not found
   if (!product) {
     return (
       <div className="max-w-xl mx-auto px-4 py-20 text-center">
@@ -76,7 +73,6 @@ export default function ProductDetailsClientView({
   const isDown = product.change.dir === "down";
   const unitText = getUnitTextBn(product.unit);
 
-  // Calculate stats from markets or product properties
   const marketMins = product.markets?.map((m) => m.min) || [product.today];
   const marketMaxs = product.markets?.map((m) => m.max) || [product.today];
   const minPrice = Math.min(...marketMins);
@@ -87,7 +83,6 @@ export default function ProductDetailsClientView({
       : product.today
   );
 
-  // Divisions filter list
   const divisions = ["all", ...Array.from(new Set(product.markets?.map((m) => m.division) || []))];
 
   const filteredMarkets = (product.markets || []).filter((m) =>
@@ -96,7 +91,7 @@ export default function ProductDetailsClientView({
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 space-y-8">
-      {/* Back button */}
+      
       <Link
         href="/"
         className="inline-flex items-center gap-2 text-sm font-medium text-bazar-muted hover:text-bazar-primary transition-colors group"
@@ -105,7 +100,6 @@ export default function ProductDetailsClientView({
         <span>হোম পেজে ফিরে যান</span>
       </Link>
 
-      {/* Top Summary Card */}
       <div className="bg-white rounded-3xl border border-bazar-base-300 p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div className="flex items-center gap-5">
@@ -131,7 +125,6 @@ export default function ProductDetailsClientView({
             </div>
           </div>
 
-          {/* Today's Price & Change Badge */}
           <div className="sm:text-right bg-bazar-base-100 sm:bg-transparent p-4 sm:p-0 rounded-2xl border sm:border-0 border-bazar-base-200">
             <span className="text-xs text-bazar-muted block font-normal">আজকের দাম</span>
             <div className="flex items-baseline sm:justify-end gap-2 mt-0.5">
@@ -158,13 +151,12 @@ export default function ProductDetailsClientView({
         </div>
       </div>
 
-      {/* Price Summary Stats (3 Cards) */}
       <section>
         <h2 className="text-lg sm:text-xl font-bold text-bazar-base-content mb-4 flex items-center gap-2">
           <span>দামের সারসংক্ষেপ</span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {/* Min Price Card */}
+          
           <div className="bg-white rounded-2xl border border-bazar-base-300 p-5 shadow-xs">
             <span className="text-xs font-medium text-bazar-muted block">সর্বনিম্ন দাম</span>
             <p className="text-2xl sm:text-3xl font-bold text-emerald-700 mt-1">
@@ -173,7 +165,6 @@ export default function ProductDetailsClientView({
             <p className="text-xs text-bazar-muted mt-2">সবচেয়ে কম দামের বাজার</p>
           </div>
 
-          {/* Average Price Card */}
           <div className="bg-white rounded-2xl border border-bazar-base-300 p-5 shadow-xs">
             <span className="text-xs font-medium text-bazar-muted block">গড় দাম</span>
             <p className="text-2xl sm:text-3xl font-bold text-bazar-primary mt-1">
@@ -182,7 +173,6 @@ export default function ProductDetailsClientView({
             <p className="text-xs text-bazar-muted mt-2">{unitText}-এর হিসাবে</p>
           </div>
 
-          {/* Max Price Card */}
           <div className="bg-white rounded-2xl border border-bazar-base-300 p-5 shadow-xs">
             <span className="text-xs font-medium text-bazar-muted block">সর্বাধিক দাম</span>
             <p className="text-2xl sm:text-3xl font-bold text-rose-700 mt-1">
@@ -193,7 +183,6 @@ export default function ProductDetailsClientView({
         </div>
       </section>
 
-      {/* বাজারভিত্তিক আজকের দাম Table */}
       <section className="bg-white rounded-2xl border border-bazar-base-300 p-6 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
@@ -206,7 +195,6 @@ export default function ProductDetailsClientView({
             </p>
           </div>
 
-          {/* Division Filter Pills */}
           {divisions.length > 2 && (
             <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
               {divisions.map((div) => (
@@ -226,7 +214,6 @@ export default function ProductDetailsClientView({
           )}
         </div>
 
-        {/* Responsive Table */}
         <div className="overflow-x-auto -mx-6 px-6">
           <table className="w-full text-left border-collapse text-xs sm:text-sm">
             <thead>
