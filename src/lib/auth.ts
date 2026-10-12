@@ -1,87 +1,80 @@
 import { betterAuth } from "better-auth";
-import { createClient } from "@libsql/client";
-import { LibsqlDialect } from "@libsql/kysely-libsql";
+import Database from "better-sqlite3";
+import fs from "fs";
+import path from "path";
+import os from "os";
 
-const isVercel = process.env.VERCEL === "1";
-const dbUrl = process.env.TURSO_DATABASE_URL
-  ? process.env.TURSO_DATABASE_URL
-  : isVercel
-  ? "file:/tmp/auth.db"
-  : "file:auth.db";
+function getDatabase() {
+  const isVercel = process.env.VERCEL === "1";
+  const dbPath = isVercel ? path.join(os.tmpdir(), "auth.db") : path.join(process.cwd(), "auth.db");
 
-const client = createClient({
-  url: dbUrl,
-  authToken: process.env.TURSO_AUTH_TOKEN,
-});
-
-async function initTables() {
-  try {
-    await client.execute(`
-      CREATE TABLE IF NOT EXISTS user (
-        id TEXT PRIMARY KEY,
-        name TEXT NOT NULL,
-        email TEXT NOT NULL UNIQUE,
-        emailVerified INTEGER NOT NULL DEFAULT 0,
-        image TEXT,
-        createdAt INTEGER NOT NULL,
-        updatedAt INTEGER NOT NULL
-      );
-    `);
-    await client.execute(`
-      CREATE TABLE IF NOT EXISTS session (
-        id TEXT PRIMARY KEY,
-        expiresAt INTEGER NOT NULL,
-        token TEXT NOT NULL UNIQUE,
-        createdAt INTEGER NOT NULL,
-        updatedAt INTEGER NOT NULL,
-        ipAddress TEXT,
-        userAgent TEXT,
-        userId TEXT NOT NULL REFERENCES user(id)
-      );
-    `);
-    await client.execute(`
-      CREATE TABLE IF NOT EXISTS account (
-        id TEXT PRIMARY KEY,
-        accountId TEXT NOT NULL,
-        providerId TEXT NOT NULL,
-        userId TEXT NOT NULL REFERENCES user(id),
-        accessToken TEXT,
-        refreshToken TEXT,
-        idToken TEXT,
-        accessTokenExpiresAt INTEGER,
-        refreshTokenExpiresAt INTEGER,
-        scope TEXT,
-        password TEXT,
-        createdAt INTEGER NOT NULL,
-        updatedAt INTEGER NOT NULL
-      );
-    `);
-    await client.execute(`
-      CREATE TABLE IF NOT EXISTS verification (
-        id TEXT PRIMARY KEY,
-        identifier TEXT NOT NULL,
-        value TEXT NOT NULL,
-        expiresAt INTEGER NOT NULL,
-        createdAt INTEGER,
-        updatedAt INTEGER
-      );
-    `);
-  } catch {
-    // Ignore error if already created
+  if (isVercel && !fs.existsSync(dbPath)) {
+    const seedPath = path.join(process.cwd(), "auth.db");
+    if (fs.existsSync(seedPath)) {
+      try {
+        fs.copyFileSync(seedPath, dbPath);
+      } catch {
+        // ignore
+      }
+    }
   }
-}
 
-initTables();
+  const db = new Database(dbPath);
+
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS user (
+      id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      email TEXT NOT NULL UNIQUE,
+      emailVerified INTEGER NOT NULL DEFAULT 0,
+      image TEXT,
+      createdAt INTEGER NOT NULL,
+      updatedAt INTEGER NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS session (
+      id TEXT PRIMARY KEY,
+      expiresAt INTEGER NOT NULL,
+      token TEXT NOT NULL UNIQUE,
+      createdAt INTEGER NOT NULL,
+      updatedAt INTEGER NOT NULL,
+      ipAddress TEXT,
+      userAgent TEXT,
+      userId TEXT NOT NULL REFERENCES user(id)
+    );
+    CREATE TABLE IF NOT EXISTS account (
+      id TEXT PRIMARY KEY,
+      accountId TEXT NOT NULL,
+      providerId TEXT NOT NULL,
+      userId TEXT NOT NULL REFERENCES user(id),
+      accessToken TEXT,
+      refreshToken TEXT,
+      idToken TEXT,
+      accessTokenExpiresAt INTEGER,
+      refreshTokenExpiresAt INTEGER,
+      scope TEXT,
+      password TEXT,
+      createdAt INTEGER NOT NULL,
+      updatedAt INTEGER NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS verification (
+      id TEXT PRIMARY KEY,
+      identifier TEXT NOT NULL,
+      value TEXT NOT NULL,
+      expiresAt INTEGER NOT NULL,
+      createdAt INTEGER,
+      updatedAt INTEGER
+    );
+  `);
+
+  return db;
+}
 
 const baseURL =
   process.env.BETTER_AUTH_URL ||
   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
 export const auth = betterAuth({
-  database: {
-    dialect: new LibsqlDialect({ client: client as any }),
-    type: "sqlite",
-  },
+  database: getDatabase(),
   baseURL,
   trustedOrigins: [
     "http://localhost:3000",
