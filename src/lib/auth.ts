@@ -75,6 +75,7 @@ const baseURL =
 
 export const auth = betterAuth({
   database: getDatabase(),
+  secret: process.env.BETTER_AUTH_SECRET || "bazar-dor-super-secret-key-assignment-7-batch-14-2026",
   baseURL,
   trustedOrigins: [
     "http://localhost:3000",
